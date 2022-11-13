@@ -1,26 +1,12 @@
 version: 0.2
+
 phases:
   install:
     commands:
-      - echo Logging in to Amazon ECR...
-      - aws --version
-      - docker --version
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - curl -sS -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator
-      - curl -sS -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.20.4/2021-04-12/bin/linux/amd64/kubectl
-      - chmod +x ./kubectl ./aws-iam-authenticator
-      - export PATH=$PWD/:$PATH
-  pre_build:
-    commands:
-      # - TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-      - TAG="$(date +%Y-%m-%d.%H.%M.%S)"
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - npm i
   build:
     commands:
-      - docker build --tag $REPOSITORY:$TAG .
-
-  post_build:
-    commands:
-      - docker push $REPOSITORY:$TAG
+      - npm run build
 artifacts:
-  files: build.json
+  files:
+    - '**/*'
