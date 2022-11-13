@@ -4,9 +4,9 @@ phases:
   install:
     commands:
       - npm i
-  start:
+  build:
     commands:
-      - npm start
+      - npm build
 artifacts:
   files:
     - '**/*'
