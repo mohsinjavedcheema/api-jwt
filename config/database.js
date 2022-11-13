@@ -10,6 +10,7 @@ exports.connect = () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
+      ssl: true
     })
     .then(() => {
       console.log("Successfully connected to database");
