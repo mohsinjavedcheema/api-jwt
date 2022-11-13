@@ -10,7 +10,8 @@ exports.connect = () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
-      ssl: true
+      ssl: true,
+      tlsCAFile: `rds-combined-ca-bundle.pem`
     })
     .then(() => {
       console.log("Successfully connected to database");
