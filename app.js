@@ -93,7 +93,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
+  res.status(200).send("Hello World!");
 });
 
 // This should be the last route else any after it won't work
