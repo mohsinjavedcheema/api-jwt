@@ -5,7 +5,7 @@ RUN yarn install --frozen-lockfile
 
 FROM 786661668075.dkr.ecr.us-east-1.amazonaws.com/node:12.18.4-alpine3.10 as builder
 WORKDIR /api-jwt
-COPY --from=dependencies /graana-api .
+COPY --from=dependencies /api-jwt .
 COPY ./.env .
 
 RUN yarn install
