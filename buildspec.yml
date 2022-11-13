@@ -6,7 +6,7 @@ phases:
       - npm i
   post_build:
     commands:
-      - printf '[{"name":"container_name","imageUri":"image_URI"}]' > imagedefinitions.json
+      - printf '[{"name":"api-jwt","imageUri":"786661668075.dkr.ecr.us-east-1.amazonaws.com/api-jwt"}]' > imagedefinitions.json
 artifacts:
   files:
     - '**/*'
