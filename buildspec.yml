@@ -4,6 +4,9 @@ phases:
   build:
     commands:
       - npm i
+  post_build:
+    commands:
+      - printf '[{"name":"container_name","imageUri":"image_URI"}]' > imagedefinitions.json
 artifacts:
   files:
     - '**/*'
