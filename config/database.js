@@ -6,11 +6,6 @@ exports.connect = () => {
   // Connecting to the database
   mongoose
     .connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      ssl: true,
       tlsCAFile: `rds-combined-ca-bundle.pem`
     })
     .then(() => {
