@@ -7,6 +7,7 @@ exports.connect = () => {
   mongoose
     .connect(MONGO_URI, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
       tlsCAFile: `rds-combined-ca-bundle.pem`
     })
     .then(() => {
