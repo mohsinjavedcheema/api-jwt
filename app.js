@@ -96,6 +96,10 @@ app.get("/welcome", auth, (req, res) => {
   res.status(200).send("Hello World!");
 });
 
+app.get('/health', function (req, res) {
+  res.send('Ok!');
+});
+
 // This should be the last route else any after it won't work
 app.use("*", (req, res) => {
   res.status(404).json({
